@@ -1,0 +1,20 @@
+FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM microsoft/dotnet:2.2-sdk AS build
+WORKDIR /src
+COPY PriceIssuer.Api/PriceIssuer.Api.csproj PriceIssuer.Api/
+RUN dotnet restore PriceIssuer.Api/PriceIssuer.Api.csproj
+COPY . .
+WORKDIR /src/PriceIssuer.Api
+RUN dotnet build PriceIssuer.Api.csproj -c Release -o /app
+
+FROM build AS publish
+RUN dotnet publish PriceIssuer.Api.csproj -c Release -o /app
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "PriceIssuer.Api.dll"]

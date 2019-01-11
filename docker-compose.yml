@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  identity.api:
+    image: ${DOCKER_REGISTRY-}identityapi
+    build:
+      context: .
+      dockerfile: Identity.Api/Dockerfile
+
+  priceissuer.api:
+    image: ${DOCKER_REGISTRY-}priceissuerapi
+    build:
+      context: .
+      dockerfile: PriceIssuer.Api/Dockerfile
+
