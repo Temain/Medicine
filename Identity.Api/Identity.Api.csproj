@@ -9,16 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Certificate\idsrv3test.pfx" />
-    <None Remove="Certificate\idsrv4test.pfx" />
+    <None Remove="Certificate\temain-tk.pfx" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Certificate\idsrv4test.pfx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Certificate\idsrv3test.pfx" />
+    <EmbeddedResource Include="Certificate\temain-tk.pfx">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

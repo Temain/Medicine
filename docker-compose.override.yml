@@ -4,10 +4,11 @@ services:
   identity.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_URLS=https://+:443
       - ASPNETCORE_HTTPS_PORT=44322
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/temain-tk.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=12345
     ports:
-      - "59176:80"
       - "44322:443"
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -15,10 +16,11 @@ services:
   priceissuer.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_URLS=https://+:443
       - ASPNETCORE_HTTPS_PORT=44332
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/temain-tk.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=12345
     ports:
-      - "65065:80"
       - "44332:443"
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

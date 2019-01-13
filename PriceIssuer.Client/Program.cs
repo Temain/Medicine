@@ -17,7 +17,7 @@ namespace PriceIssuer.Client
 			// discover endpoints from metadata
 			var client = new HttpClient();
 			ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-			var disco = await client.GetDiscoveryDocumentAsync("https://identity.api:44322");
+			var disco = await client.GetDiscoveryDocumentAsync("https://auth.temain.tk:44322");
 			if (disco.IsError)
 			{
 				Console.WriteLine(disco.Error);
@@ -27,7 +27,7 @@ namespace PriceIssuer.Client
 			// request token
 			var response = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
 			{
-				Address = "https://localhost:44322/connect/token", // disco.TokenEndpoint,
+				Address = "https://auth.temain.tk:44322/connect/token", // disco.TokenEndpoint,
 
 				ClientId = "piclient",
 				ClientSecret = "secret",
@@ -57,7 +57,7 @@ namespace PriceIssuer.Client
 			// call api
 			client.SetBearerToken(response.AccessToken);
 
-			var identityResponse = await client.GetAsync("https://localhost:44332/identity");
+			var identityResponse = await client.GetAsync("https://price-issuer.temain.tk:44332/identity");
 			if (!identityResponse.IsSuccessStatusCode)
 			{
 				Console.WriteLine(identityResponse.StatusCode);

@@ -16,7 +16,7 @@ namespace Identity.Api.Certificates
              *  real environment the certificate should be created and stored in a secure way, which is out
              *  of the scope of this project
              **********************************************************************************************/
-            using (var stream = assembly.GetManifestResourceStream("Identity.Api.Certificate.idsrv4test.pfx"))
+            using (var stream = assembly.GetManifestResourceStream("Identity.Api.Certificate.temain-tk.pfx"))
             {
                 return new X509Certificate2(ReadStream(stream), "12345");
             }

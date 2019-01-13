@@ -1,35 +1,37 @@
 {
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:59176",
-      "sslPort": 44322
-    }
-  },
-  "$schema": "http://json.schemastore.org/launchsettings.json",
-  "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "Identity.Api": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:59176"
-    },
-    "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/values"
-    }
-  }
+	"iisSettings": {
+		"windowsAuthentication": false,
+		"anonymousAuthentication": true,
+		"iisExpress": {
+			"applicationUrl": "http://auth.temain.tk:59176",
+			"sslPort": 44322
+		}
+	},
+	"$schema": "http://json.schemastore.org/launchsettings.json",
+	"profiles": {
+		"IIS Express": {
+			"commandName": "IISExpress",
+			"launchBrowser": true,
+			"launchUrl": "https://auth.temain.tk:44322/.well-known/openid-configuration",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			}
+		},
+		"Identity.Api": {
+			"commandName": "Project",
+			"launchBrowser": true,
+			"launchUrl": "https://auth.temain.tk:44322/.well-known/openid-configuration",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Development",
+				"ASPNETCORE_Kestrel__Certificates__Default__Path": "C:\\Users\\Temain\\AppData\\Roaming\\ASP.NET\\Https\\temain-tk.pfx",
+				"ASPNETCORE_Kestrel__Certificates__Default__Password": "12345"
+			},
+			"applicationUrl": "https://auth.temain.tk:44322"
+		},
+		"Docker": {
+			"commandName": "Docker",
+			"launchBrowser": true,
+			"launchUrl": "{Scheme}://auth.temain.tk:{ServicePort}/api/values"
+		}
+	}
 }

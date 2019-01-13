@@ -28,7 +28,7 @@ namespace PriceIssuer.Api
 			services.AddAuthentication("Bearer")
 				.AddJwtBearer("Bearer", options =>
 				{
-					options.Authority = "https://identity.api";
+					options.Authority = "https://auth.temain.tk:44322";
 					// options.RequireHttpsMetadata = false;
 					options.Audience = "priceissuer";
 				});

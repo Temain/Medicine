@@ -1,35 +1,37 @@
 {
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:65065",
-      "sslPort": 44332
-    }
-  },
-  "$schema": "http://json.schemastore.org/launchsettings.json",
-  "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "PriceIssuer.Api": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:65065"
-    },
-    "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/values"
-    }
-  }
+	"iisSettings": {
+		"windowsAuthentication": false,
+		"anonymousAuthentication": true,
+		"iisExpress": {
+			"applicationUrl": "http://price-issuer.temain.tk:65065",
+			"sslPort": 44332
+		}
+	},
+	"$schema": "http://json.schemastore.org/launchsettings.json",
+	"profiles": {
+		"IIS Express": {
+			"commandName": "IISExpress",
+			"launchBrowser": true,
+			"launchUrl": "https://price-issuer.temain.tk:44332/api/values",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			}
+		},
+		"PriceIssuer.Api": {
+			"commandName": "Project",
+			"launchBrowser": true,
+			"launchUrl": "api/values",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Development",
+				"ASPNETCORE_Kestrel__Certificates__Default__Path": "C:\\Users\\Temain\\AppData\\Roaming\\ASP.NET\\Https\\temain-tk.pfx",
+				"ASPNETCORE_Kestrel__Certificates__Default__Password": "12345"
+			},
+			"applicationUrl": "https://price-issuer.temain.tk:44332"
+		},
+		"Docker": {
+			"commandName": "Docker",
+			"launchBrowser": true,
+			"launchUrl": "{Scheme}://price-issuer.temain.tk:{ServicePort}/api/values"
+		}
+	}
 }

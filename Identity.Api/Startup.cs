@@ -23,7 +23,7 @@ namespace Identity.Api
 		{
 			IdentityModelEventSource.ShowPII = true; // To show detail of error and see the problem
 
-			var builder = services.AddIdentityServer(opt => opt.IssuerUri = "https://identity.api")
+			var builder = services.AddIdentityServer(opt => opt.IssuerUri = "https://auth.temain.tk:44322")
 				//.AddDeveloperSigningCredential()
 				.AddSigningCredential(Certificate.Get())
 				.AddInMemoryIdentityResources(Config.GetResources())
