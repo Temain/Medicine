@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,8 +12,11 @@ namespace PriceIssuer.Api.Controllers
 	{
 		// GET api/values
 		[HttpGet]
-		public ActionResult<IEnumerable<string>> Get()
+		public async Task<ActionResult<IEnumerable<string>>> Get(CancellationToken cancellationToken)
 		{
+			var client = new HttpClient();
+			var response = await client.GetAsync("https://auth.temain.tk/.well-known/openid-configuration");
+
 			return new string[] { "value1", "value2" };
 		}
 

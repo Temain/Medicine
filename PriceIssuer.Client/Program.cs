@@ -27,8 +27,7 @@ namespace PriceIssuer.Client
 			// request token
 			var response = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
 			{
-				Address = "https://auth.temain.tk:44322/connect/token", // disco.TokenEndpoint,
-
+				Address = disco.TokenEndpoint,
 				ClientId = "piclient",
 				ClientSecret = "secret",
 				Scope = "priceissuer"
@@ -41,18 +40,6 @@ namespace PriceIssuer.Client
 			}
 
 			Console.WriteLine(response.Json);
-
-			//client = new HttpClient();
-			//var testResponse = await client.GetAsync("https://localhost:44332/api/values");
-			//if (!testResponse.IsSuccessStatusCode)
-			//{
-			//	Console.WriteLine(testResponse.StatusCode);
-			//}
-			//else
-			//{
-			//	var content = await testResponse.Content.ReadAsStringAsync();
-			//	Console.WriteLine(JArray.Parse(content));
-			//}
 
 			// call api
 			client.SetBearerToken(response.AccessToken);

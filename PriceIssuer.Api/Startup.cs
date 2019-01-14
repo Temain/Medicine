@@ -29,8 +29,10 @@ namespace PriceIssuer.Api
 				.AddJwtBearer("Bearer", options =>
 				{
 					options.Authority = "https://auth.temain.tk:44322";
-					// options.RequireHttpsMetadata = false;
+					// By container alias
+					options.MetadataAddress = "https://auth.temain.tk/.well-known/openid-configuration";
 					options.Audience = "priceissuer";
+					options.RequireHttpsMetadata = true;
 				});
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
